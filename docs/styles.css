@@ -1,0 +1,409 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------     Estilos para el enlace del logo */
+.logo-link {
+    text-decoration: none; /* Eliminar subrayado */
+    color: #333; /* Color de texto deseado */
+    display: inline-flex; /* Mostrar como flex para centrar verticalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+
+.logo-link img {
+    height: 30px; /* Altura deseada para el logo */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+
+
+
+/* Estilos para el enlace con clase logo-link-2 */
+.logo-link-2 {
+    text-decoration: none; /* Eliminar subrayado */
+    color: #333; /* Color de texto deseado */
+    display: flex; /* Mostrar como flex para centrar verticalmente */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    text-align: center; /* Centrar el texto dentro del enlace */
+}
+
+
+/* Estilos para centrar el h2 Envianos tu duda*/
+.page-title {
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+
+
+
+
+
+
+
+/* --------------------------------------- Estilos para el contenedor superior */
+.top-container {
+    width: 100%;
+    height: 30vh; /* 15% del alto de la pantalla */
+    background-color: #f0f0f0; /* Color de fondo */
+    position: relative; /* Posición relativa para que la imagen sea absoluta */
+    overflow: hidden; /* Oculta partes de la imagen que se salgan del div */
+}
+
+
+/* Estilos para la imagen */
+.top-container img {
+    width: 100%; /* Ancho al 100% del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+    display: block; /* Hace que la imagen sea un bloque */
+    position: absolute; /* Posición absoluta para cubrir todo el contenedor */
+    top: 0; /* Alinear la imagen en la parte superior */
+    left: 0; /* Alinear la imagen en la parte izquierda */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------- Estilos del encabezado */
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-bottom: 0px solid #ccc;
+}
+
+
+
+
+.page-title {
+    display: flex;
+    align-items: center;
+
+
+    margin-left: auto; /* Empuja hacia la derecha */
+    padding: 20px;
+}
+
+
+.page-title img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Empuja hacia la izquierda */
+}
+
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+
+.search-bar input[type="text"]:hover {
+    border-color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------ Estilos para el contenedor de botones */
+.buttons {
+    display: flex; /* Mostrar los elementos como flexbox para alinearlos */
+    justify-content: center; /* Alinear los elementos al extremo derecho del contenedor */
+    padding: 10px 20px; /* Relleno interno de 10px arriba/abajo y 20px izquierda/derecha */
+    background-color: #f0f0f0; /* Color de fondo del contenedor */
+    border-bottom: 0px solid #ccc; /* Borde inferior de 1px sólido con color gris */
+}
+
+
+/* Estilos para los botones */
+.button {
+    display: block; /* Mostrar como bloque para ocupar todo el ancho disponible */
+    background-color: #004a82; /* Color de fondo del botón */
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Eliminar subrayado del texto */
+    padding: 10px 20px; /* Relleno interno de 10px arriba/abajo y 20px izquierda/derecha */
+    border-radius: 5px; /* Borde redondeado con radio de 5px */
+    margin-left: 10px; /* Margen izquierdo de 10px para separación entre botones */
+    transition: background-color 0.3s ease; /* Transición suave de 0.3 segundos para el color de fondo */
+}
+
+
+/* Estilos para el efecto hover del botón */
+.button:hover {
+    background-color: rgba(0, 74, 130, 0.75); /* Cambio de color de fondo al pasar el mouse */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------  Pie de página */
+footer {
+    background-color: #d9d9d9;
+    color: #8c8c8c;
+    text-align: center;
+    padding: 0px 0;
+    position: fixed;
+    width: 100%;
+
+    bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------  Estilos para los resultados de búsqueda */
+.search-results {
+    display: none; /* Ocultar los resultados inicialmente */
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Centrar el contenido */
+}
+
+
+.result-item {
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.result-item h3 {
+    margin: 0 0 10px 0;
+    color: #004a82;
+}
+
+
+.result-item p {
+    margin: 0;
+    line-height: 1.6; /* Ajusta el interlineado aquí */
+}
+
+
+.result-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------- Formulario de consulta */
+.form-section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.form-section h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+
+
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.form-section label {
+    font-weight: lighter;
+    margin-top: 10px;
+}
+
+
+
+
+.form-section input[type="email"],
+.form-section textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+
+
+.form-section button {
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #004a82; /* color AZUL de EVA */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+.form-section button:hover {
+    background-color: rgba(0, 74, 130, 0.75); /* color AZUL de 20 porciento mas claro */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+
+
+    .top-container {
+        width: 100%;
+        height: 15vh; /* 15% del alto de la pantalla */
+        background-color: #f0f0f0; /* Color de fondo */
+        position: relative; /* Posición relativa para que la imagen sea absoluta */
+        overflow: hidden; /* Oculta partes de la imagen que se salgan del div */
+    }
+
+
+    .search-bar {
+        margin-bottom: 10px;
+        justify-content: center; /* Centra el contenido en dispositivos pequeños */
+    }
+
+
+    .search-bar input[type="text"] {
+        width: 100%;
+    }
+
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .button {
+        width: 40%;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
+
+
