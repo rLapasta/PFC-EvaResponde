@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eva Responde</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- Contenedor superior que ocupa todo el ancho del dispositivo y 15% de la pantalla -->
+<div class="top-container">
+    <!-- Aquí puedes colocar cualquier contenido adicional -->
+    <a href="http://patio.fadu.edu.uy/" target="_blank">
+    <img src="img/patio.jpg" alt="Banner">
+    </a>
+</div>
+
+
+
+<!-- Encabezado de la página -->
+<header>
+
+    <!-- Contenido del encabezado -->
+    <div class="header-content">
+
+        <!-- Nombre de la página -->
+        <h1 class="page-title">
+            <a href="index.html" class="logo-link">
+                <img src="img/logo.png" alt="Logo de Eva Responde">
+                Eva Responde
+            </a>
+        </h1>
+
+
+
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Ingresa tu consulta...">
+        </div>
+
+    </div>
+
+
+</header>
+
+
+
+<!-- Resultados de la búsqueda -->
+<div class="search-results" id="search-results"></div>
+
+
+
+
+<!-- Botones de acción -->
+<div class="buttons">
+
+    <!-- Botón 2: Envíanos tu duda -->
+    <a href="enviar-consulta.html" class="button">Envianos tu duda</a>
+</div>
+
+
+
+
+<!-- Pie de página -->
+<footer>
+    <p>Equipo de gestión ProEVA-FADU | Servicio de Soporte Informático | FADU | UdelaR</p>
+</footer>
+
+<!-- Script de búsqueda -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionar el input de búsqueda, el contenedor de resultados y el contenido del encabezado
+        const searchInput = document.querySelector('.search-input');
+        const searchResults = document.getElementById('search-results');
+        const headerContent = document.querySelector('.header-content');
+
+        // Cargar el repertorio de datos desde el archivo JSON
+        fetch('data.json')
+            .then(response => response.json()) // Convertir la respuesta a formato JSON
+            .then(data => {
+                // Añadir un event listener al input de búsqueda solo para el enter
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        const query = searchInput.value.toLowerCase();
+                        searchResults.innerHTML = ''; // Limpiar resultados anteriores
+
+                        // Filtrar datos según la consulta
+                        const filteredData = data.filter(item =>
+                            item.title.toLowerCase().includes(query) ||
+                            item.content.toLowerCase().includes(query)
+                        );
+
+                        // Mostrar resultados filtrados
+                        if (filteredData.length > 0) {
+                            filteredData.forEach(item => {
+                                // Crear un elemento div para cada resultado
+                                const resultItem = document.createElement('div');
+                                resultItem.classList.add('result-item');
+
+                                // Crear el contenido del resultado
+                                let contentHtml = `
+                                <h3>${item.title}</h3>
+                                <p>${item.content.replace(/\\n/g, '<br>')}</p>
+                            `;
+
+                                // Agregar imágenes si están definidas
+                                if (item.images && item.images.length > 0) {
+                                    contentHtml += item.images.map(image => `
+                                    <img src="${image}" alt="${item.title}" class="result-image">
+                                `).join('');
+                                }
+
+                                // Asignar el contenido HTML al elemento resultItem
+                                resultItem.innerHTML = contentHtml;
+                                // Agregar resultItem al contenedor de resultados
+                                searchResults.appendChild(resultItem);
+                            });
+                            searchResults.style.display = 'block'; // Mostrar resultados
+                        } else {
+                            // Mostrar mensaje si no se encontraron resultados
+                            searchResults.innerHTML = `
+                            <p style="font-style: italic; color: #666; text-align: center; line-height: 1.6;">
+                                No se encontraron resultados. Puedes enviarnos tu consulta para que la agreguemos a nuestro repertorio. Crecemos juntos.
+                            </p>`;
+                            searchResults.style.display = 'block'; // Mostrar mensaje
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error al cargar los datos:', error)); // Capturar cualquier error en la carga de datos
+    });
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
